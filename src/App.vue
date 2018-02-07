@@ -1,6 +1,7 @@
-<template lang="pug">
+<template lang='pug'>
 #app
-  h1 {{ msg }}
+  h1
+  input.bingoTtl(v-model='title')
   bingo(:mode='mode', :itemBg='itemBg', :itemCont='itemCont')
   bingoInput(:mode='mode', :itemBg='itemBg', :itemCont='itemCont')
 </template>
@@ -16,7 +17,7 @@ export default {
   },
   data () {
     return {
-      msg: '',
+      title: '',
       mode: 3,
       itemBg: '#ddd',
       itemCont: this.initItemCont(),
@@ -41,6 +42,7 @@ export default {
 
 <style>
 $bingo-border: #2c3e50;
+
 * {
   box-sizing: border-box;
 }
@@ -49,8 +51,26 @@ $bingo-border: #2c3e50;
   font-family: 'YuGothic', 'メイリオ', Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
-  margin: 60px auto 0;
+  margin: 64px auto 0;
   max-width: 900px;
+  min-width: 555px;
   width: 100%;
+}
+
+.bingoTtl {
+  border: none;
+  border-bottom: 1px solid gray;
+  display: block;
+  font-size: 20px;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 10px;
+  width: 100%;
+
+  &:focus {
+    background-color: aliceblue;
+    box-shadow: none;
+    outline: none;
+  }
 }
 </style>

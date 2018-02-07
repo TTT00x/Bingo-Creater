@@ -23,7 +23,7 @@ $bingo-border: #2c3e50;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 32px auto;
 
   &.bingo-333 {
     height: 333px;
