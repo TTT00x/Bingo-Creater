@@ -5,11 +5,13 @@
   size-selector(v-on:changeSize='changeSize', :mode='mode', :size='size')
   bingo(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
 </template>
 <script>
 import Bingo from './components/Bingo';
 import BingoInput from './components/BingoInput'
 import SizeSelector from './components/SizeSelector'
+import UrlViewer from './components/UrlViewer'
 
 export default {
   name: 'app',
@@ -17,6 +19,7 @@ export default {
     Bingo,
     BingoInput,
     SizeSelector,
+    UrlViewer
   },
   data () {
     return {
