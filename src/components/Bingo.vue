@@ -1,5 +1,5 @@
 <template lang="pug">
-.bingo.bingo-333(v-if='mode === 3')
+.bingo.bingo-333(v-if='size === 3')
   p.bingo-Item(:style="{ backgroundColor: itemBg }", v-text="itemCont[0].data")
   p.bingo-Item(v-text="itemCont[1].data")
   p.bingo-Item(:style="{ backgroundColor: itemBg }", v-text="itemCont[2].data")
@@ -12,11 +12,12 @@
 </template>
 <script>
   export default {
-    props: ['mode', 'itemBg', 'itemCont']
+    props: ['mode', 'size', 'itemBg', 'itemCont']
   };
 </script>
 <style scoped>
 $bingo-border: #2c3e50;
+
 .bingo {
   border-top: 1px solid $bingo-border;
   border-left: 1px solid $bingo-border;

@@ -1,5 +1,5 @@
 <template lang="pug">
-.bingoInput.bingoInput-333
+.bingoInput.bingoInput-333(v-if="mode === 'make'")
   .bingoInput-Item(:style="{ backgroundColor: itemBg }")
     input(v-model="itemCont[0].data")
   .bingoInput-Item
@@ -21,7 +21,7 @@
 </template>
 <script>
   export default {
-    props: ['mode', 'itemBg', 'itemCont']
+    props: ['mode', 'size', 'itemBg', 'itemCont']
   };
 </script>
 <style scoped>

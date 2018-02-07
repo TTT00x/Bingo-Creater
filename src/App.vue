@@ -2,26 +2,29 @@
 #app
   h1
   input.bingoTtl(v-model='title')
-  bingo(:mode='mode', :itemBg='itemBg', :itemCont='itemCont')
-  bingoInput(:mode='mode', :itemBg='itemBg', :itemCont='itemCont')
+  size-selector(v-on:changeSize='changeSize', :mode='mode', :size='size')
+  bingo(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  bingo-input(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
 </template>
 <script>
-import Bingo from './components/Bingo.vue';
-import BingoInput from './components/BingoInput.vue'
+import Bingo from './components/Bingo';
+import BingoInput from './components/BingoInput'
+import SizeSelector from './components/SizeSelector'
 
 export default {
   name: 'app',
   components: {
     Bingo,
-    BingoInput
+    BingoInput,
+    SizeSelector,
   },
   data () {
     return {
       title: '',
-      mode: 3,
+      mode: 'make',
+      size: 3,
       itemBg: '#ddd',
-      itemCont: this.initItemCont(),
-      share: false
+      itemCont: this.initItemCont()
     }
   },
   beforeMount: function () {
@@ -35,6 +38,10 @@ export default {
         itemCont[i].open = false;
       }
       return itemCont;
+    },
+    changeSize: (val) => {
+      this.size = val;
+      console.log(this.size);
     }
   }
 };
@@ -45,6 +52,67 @@ $bingo-border: #2c3e50;
 
 * {
   box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, address, img, q, sub, sup, i,
+dl, dt, dd, ol, ul, li, form, label, button, table,
+caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+a {
+
+  &:focus,
+  &:active {
+    outline: 1px dotted;
+  }
+}
+
+input,
+select,
+option,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus,
+  &:active {
+    outline: 1px dotted;
+  }
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  font: inherit;
+
+  &:focus,
+  &:active {
+    outline: 1px dotted;
+  }
 }
 
 #app {
