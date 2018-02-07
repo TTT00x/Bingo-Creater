@@ -19,45 +19,21 @@ export default {
       msg: '',
       mode: 3,
       itemBg: '#ddd',
-      itemCont: [
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        },
-        {
-          data: '',
-          open: false
-        }
-      ],
+      itemCont: this.initItemCont(),
       share: false
+    }
+  },
+  beforeMount: function () {
+  },
+  methods: {
+    initItemCont: () => {
+      const itemCont = [];
+      for (let i = 0; i < 25; i += 1) {
+        itemCont[i] = {};
+        itemCont[i].data = '';
+        itemCont[i].open = false;
+      }
+      return itemCont;
     }
   }
 };
