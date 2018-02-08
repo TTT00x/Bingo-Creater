@@ -1,5 +1,5 @@
 <template lang="pug">
-.bingo.bingo-333(v-if='size === 3')
+.bingo.bingo-size3(v-bind:class="{ 'bingo-size3': sizeIs3, 'bingo-size5': sizeIs5 }")
   p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[0].data")
   p.bingo-Item(v-text="itemCont[1].data")
   p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[2].data")
@@ -9,10 +9,34 @@
   p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[6].data")
   p.bingo-Item(v-text="itemCont[7].data")
   p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[8].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[9].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[10].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[11].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[12].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[12].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[14].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[15].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[16].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[17].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[18].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[19].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[20].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[21].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[22].data")
+  p.bingo-Item(v-if="sizeIs5", v-text="itemCont[23].data")
+  p.bingo-Item(v-if="sizeIs5", :style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[24].data")
 </template>
 <script>
   export default {
-    props: ['mode', 'size', 'itemBg', 'itemCont']
+    props: ['mode', 'size', 'itemBg', 'itemCont'],
+    computed: {
+      sizeIs3: function () {
+        return this.size === 3;
+      },
+      sizeIs5: function () {
+        return this.size === 5;
+      }
+    }
   };
 </script>
 <style scoped>
@@ -26,7 +50,7 @@ $bingo-border: #2c3e50;
   flex-wrap: wrap;
   margin: 32px auto;
 
-  &.bingo-333 {
+  &.bingo-size3 {
     height: 333px;
     width: 333px;
 
@@ -36,7 +60,7 @@ $bingo-border: #2c3e50;
     }
   }
 
-  &.bingo-555 {
+  &.bingo-size5 {
     height: 555px;
     width: 555px;
 

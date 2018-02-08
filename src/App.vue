@@ -76,9 +76,8 @@ export default {
       }
       return itemCont;
     },
-    changeSize: (val) => {
-      this.size = val;
-      console.log(this.size);
+    changeSize: function (val) {
+      this.size = parseInt(val);
     }
   }
 };

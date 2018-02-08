@@ -16,7 +16,6 @@
     methods: {
       emitChangeSize: function(e) {
         const val = e.target.value;
-        console.log(val);
         this.$emit('changeSize', val);
       }
     }
