@@ -6,12 +6,14 @@
   bingo(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  vue-footer
 </template>
 <script>
 import Bingo from './components/Bingo';
-import BingoInput from './components/BingoInput'
-import SizeSelector from './components/SizeSelector'
-import UrlViewer from './components/UrlViewer'
+import BingoInput from './components/BingoInput';
+import SizeSelector from './components/SizeSelector';
+import UrlViewer from './components/UrlViewer';
+import VueFooter from './components/VueFooter';
 
 export default {
   name: 'app',
@@ -19,7 +21,8 @@ export default {
     Bingo,
     BingoInput,
     SizeSelector,
-    UrlViewer
+    UrlViewer,
+    VueFooter
   },
   data () {
     return {
