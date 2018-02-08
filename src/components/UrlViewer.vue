@@ -12,7 +12,7 @@
     props: ['title', 'mode', 'size', 'itemBg', 'itemCont'],
     data() {
       return {
-        domain: 'http://bingo-maker/',
+        domain: 'http://' + document.domain,
         copyComplete: false
       }
     },
@@ -32,7 +32,7 @@
     },
     computed: {
       url: function() {
-        return `${this.domain}?title=${this.encodeTitle}&mode=${this.nextMode}&size=${this.size}${this.encodeContents}`
+        return `${this.domain}/?title=${this.encodeTitle}&mode=${this.nextMode}&size=${this.size}${this.encodeContents}`
       },
       modeIsMake: function () {
         return this.mode === 'make';
