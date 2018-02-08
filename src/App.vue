@@ -4,7 +4,7 @@
   input.bingoTtl(v-model='title')
   size-selector(v-on:changeSize='changeSize', :mode='mode', :size='size')
   bingo(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
-  bingo-input(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   vue-footer
 </template>
@@ -29,7 +29,7 @@ export default {
       title: '',
       mode: 'make',
       size: 3,
-      itemBg: '#ddd',
+      itemBg: 'ddd',
       itemCont: this.initItemCont()
     }
   },

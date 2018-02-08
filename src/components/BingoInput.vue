@@ -1,22 +1,22 @@
 <template lang="pug">
-.bingoInput.bingoInput-333(v-if="mode === 'make'")
-  .bingoInput-Item(:style="{ backgroundColor: itemBg }")
+.bingoInput.bingoInput-333(v-if="size === 3")
+  .bingoInput-Item(:style="{ backgroundColor: '#' + itemBg }")
     input(v-model="itemCont[0].data")
   .bingoInput-Item
     input(v-model="itemCont[1].data")
-  .bingoInput-Item(:style="{ backgroundColor: itemBg }")
+  .bingoInput-Item(:style="{ backgroundColor: '#' + itemBg }")
     input(v-model="itemCont[2].data")
   .bingoInput-Item
     input(v-model="itemCont[3].data")
-  .bingoInput-Item(:style="{ backgroundColor: itemBg }")
+  .bingoInput-Item(:style="{ backgroundColor: '#' + itemBg }")
     input(v-model="itemCont[4].data")
   .bingoInput-Item
     input(v-model="itemCont[5].data")
-  .bingoInput-Item(:style="{ backgroundColor: itemBg }")
+  .bingoInput-Item(:style="{ backgroundColor: '#' + itemBg }")
     input(v-model="itemCont[6].data")
   .bingoInput-Item
     input(v-model="itemCont[7].data")
-  .bingoInput-Item(:style="{ backgroundColor: itemBg }")
+  .bingoInput-Item(:style="{ backgroundColor: '#' + itemBg }")
     input(v-model="itemCont[8].data")
 </template>
 <script>
@@ -32,7 +32,7 @@ $bingo-border: #2c3e50;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  margin: 30px auto;
+  margin: 32px auto 0;
 
   &.bingoInput-333 {
     width: 333px;

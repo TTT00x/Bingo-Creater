@@ -1,14 +1,14 @@
 <template lang="pug">
 .bingo.bingo-333(v-if='size === 3')
-  p.bingo-Item(:style="{ backgroundColor: itemBg }", v-text="itemCont[0].data")
+  p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[0].data")
   p.bingo-Item(v-text="itemCont[1].data")
-  p.bingo-Item(:style="{ backgroundColor: itemBg }", v-text="itemCont[2].data")
+  p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[2].data")
   p.bingo-Item(v-text="itemCont[3].data")
-  p.bingo-Item(:style="{ backgroundColor: itemBg }", v-text="itemCont[4].data")
+  p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[4].data")
   p.bingo-Item(v-text="itemCont[5].data")
-  p.bingo-Item(:style="{ backgroundColor: itemBg }", v-text="itemCont[6].data")
+  p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[6].data")
   p.bingo-Item(v-text="itemCont[7].data")
-  p.bingo-Item(:style="{ backgroundColor: itemBg }", v-text="itemCont[8].data")
+  p.bingo-Item(:style="{ backgroundColor: '#' + itemBg }", v-text="itemCont[8].data")
 </template>
 <script>
   export default {
