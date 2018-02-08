@@ -170,6 +170,7 @@ button {
   margin: 0 auto;
   max-width: 500px;
   padding: 10px;
+  text-align: center;
   width: 100%;
 
   &:focus {
