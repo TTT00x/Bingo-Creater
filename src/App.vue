@@ -33,9 +33,40 @@ export default {
       itemCont: this.initItemCont()
     }
   },
+  created: function () {
+    this.checkParam();
+  },
   beforeMount: function () {
   },
   methods: {
+    checkParam: function () {
+      const param = location.search.substring(1).split('&');
+      if (param[0] === '') return;
+      const paramLen = param.length;
+      const arg = {};
+      arg.cont = {};
+      for(let i = 0; i < paramLen; i += 1) {
+        let kv = param[i].split('=');
+        if (kv[0].indexOf('cont') === 0) {
+          let contIndex = kv[0].replace('cont', '');
+          arg.cont[contIndex]=kv[1]
+        } else if (kv[0] === 'size') {
+          arg[kv[0]] = parseInt(kv[1]);
+        } else {
+          arg[kv[0]] = kv[1];
+        }
+      }
+      this.setData(arg);
+    },
+    setData: function (arg) {
+      this.title = arg.title;
+      this.mode = arg.mode;
+      this.size = arg.size;
+      const cont = arg.cont;
+      for (let prop in cont) {
+        this.itemCont[prop].data = decodeURI(cont[prop]);
+      }
+    },
     initItemCont: () => {
       const itemCont = [];
       for (let i = 0; i < 25; i += 1) {
