@@ -105,7 +105,7 @@ $bingo-border: #2c3e50;
 
     &:focus,
     &:active {
-      background-color: aliceblue;
+      background-color: #fafafa;
       box-shadow: none;
       outline: none;
     }

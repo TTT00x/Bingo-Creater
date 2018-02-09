@@ -1,7 +1,7 @@
 <template lang='pug'>
 #app
   h1
-  input.bingoTtl(v-model='title')
+  input.bingoTtl(v-model='title', placeholder='タイトル')
   mode-changer(v-if="mode === 'share'", v-on:changeMode="changeMode", mode='mode')
   size-changer(v-if="mode === 'make'", v-on:changeSize='changeSize', :mode='mode', :size='size')
   bingo(v-on:switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
@@ -184,9 +184,19 @@ button {
   width: 100%;
 
   &:focus {
-    background-color: aliceblue;
+    background-color: #fafafa;
     box-shadow: none;
     outline: none;
+  }
+
+  &:placeholder-shown {
+    color: #d7d7d7;
+  }
+  &::-webkit-input-placeholder {
+    color: #d7d7d7;
+  }
+  &:-ms-input-placeholder {
+    color: #d7d7d7;
   }
 }
 </style>

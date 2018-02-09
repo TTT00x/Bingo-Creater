@@ -127,7 +127,7 @@ $hilight: #f5bebe;
   word-break: break-all;
 
   &:focus {
-    background-color: aliceblue;
+    background-color: #fafafa;
     outline: none;
   }
 }
@@ -158,7 +158,8 @@ $hilight: #f5bebe;
   color: $bingo-border;
 
   &:hover {
-    background-color: $hilight;
+    background-color: $bingo-border;
+    color: #fff;
   }
 }
 
@@ -168,7 +169,7 @@ $hilight: #f5bebe;
   color: #fff;
 
   &:hover {
-    background-color: $hilight;
+    background-color: #fff;
     color: $bingo-border;
   }
 }
@@ -179,7 +180,8 @@ $hilight: #f5bebe;
   color: $bingo-border;
 
   &:hover {
-    background-color: $hilight;
+    background-color: $bingo-border;
+    color: #fff;
   }
 }
 
