@@ -1,10 +1,10 @@
 <template lang='pug'>
 #app
   h1
-  input.bingoTtl(v-model='title', placeholder='タイトル')
-  mode-changer(v-if="mode === 'share'", v-on:changeMode="changeMode", mode='mode')
-  size-changer(v-if="mode === 'make'", v-on:changeSize='changeSize', :mode='mode', :size='size')
-  bingo(v-on:switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  title-changer(@changeTitle="changeTitle", :title="title", :mode="mode")
+  mode-changer(v-if="mode === 'share'", @changeMode="changeMode", mode='mode')
+  size-changer(v-if="mode === 'make'", @changeSize='changeSize', :mode='mode', :size='size')
+  bingo(@switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   vue-footer
@@ -12,6 +12,7 @@
 <script>
 import Bingo from './components/Bingo';
 import BingoInput from './components/BingoInput';
+import TitleChanger from './components/TitleChanger';
 import ModeChanger from './components/ModeChanger';
 import SizeChanger from './components/SizeChanger';
 import UrlViewer from './components/UrlViewer';
@@ -22,6 +23,7 @@ export default {
   components: {
     Bingo,
     BingoInput,
+    TitleChanger,
     ModeChanger,
     SizeChanger,
     UrlViewer,
@@ -78,6 +80,9 @@ export default {
         itemCont[i].open = false;
       }
       return itemCont;
+    },
+    changeTitle: function (val) {
+      this.title = val;
     },
     changeMode: function (val) {
       console.log(val);
@@ -171,33 +176,5 @@ button {
   /*min-width: 555px;*/
   padding: 0 10px;
   width: 100%;
-}
-
-.bingoTtl {
-  border: none;
-  border-bottom: 1px solid gray;
-  display: block;
-  font-size: 20px;
-  margin: 0 auto;
-  max-width: 500px;
-  padding: 10px;
-  text-align: center;
-  width: 100%;
-
-  &:focus {
-    background-color: #fafafa;
-    box-shadow: none;
-    outline: none;
-  }
-
-  &:placeholder-shown {
-    color: #d7d7d7;
-  }
-  &::-webkit-input-placeholder {
-    color: #d7d7d7;
-  }
-  &:-ms-input-placeholder {
-    color: #d7d7d7;
-  }
 }
 </style>
