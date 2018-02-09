@@ -1,18 +1,13 @@
 <template lang="pug">
-.sizeSelector
-  input.sizeSelector-Input#sizeSelector-3(v-on:change="emitChangeSize", type='radio', name='sizeSelector', value='3', checked)
-  label.sizeSelector-Label(for='sizeSelector-3') 3 * 3
-  input.sizeSelector-Input#sizeSelector-5(v-on:change="emitChangeSize", type='radio', name='sizeSelector', value='5')
-  label.sizeSelector-Label(for='sizeSelector-5') 5 * 5
+.sizeChanger
+  input.sizeChanger-Input#sizeChanger-3(v-on:change="emitChangeSize", type='radio', name='sizeChanger', value='3', checked)
+  label.sizeChanger-Label(for='sizeChanger-3') 3 × 3
+  input.sizeChanger-Input#sizeChanger-5(v-on:change="emitChangeSize", type='radio', name='sizeChanger', value='5')
+  label.sizeChanger-Label(for='sizeChanger-5') 5 × 5
 </template>
 <script>
   export default {
     props: ['size'],
-    data() {
-      return {
-        changedSize: 3
-      }
-    },
     methods: {
       emitChangeSize: function(e) {
         const val = e.target.value;
@@ -24,12 +19,12 @@
 <style scoped>
 $bingo-border: #2c3e50;
 
-.sizeSelector {
+.sizeChanger {
   margin-top: 32px;
   position: relative;
 }
 
-.sizeSelector-Input {
+.sizeChanger-Input {
   position: absolute;
   top: 0;
   left: 0;
@@ -43,7 +38,7 @@ $bingo-border: #2c3e50;
   }
 }
 
-.sizeSelector-Label {
+.sizeChanger-Label {
   font-size: 16px;
   padding: 5px 5px 5px 20px;
   position: relative;
@@ -72,11 +67,11 @@ $bingo-border: #2c3e50;
   }
 }
 
-.sizeSelector-Input:focus + .sizeSelector-Label {
+.sizeChanger-Input:focus + .sizeChanger-Label {
   outline: 1px dotted;
 }
 
-.sizeSelector-Input:checked + .sizeSelector-Label {
+.sizeChanger-Input:checked + .sizeChanger-Label {
 
   &:before {
     content: '';
