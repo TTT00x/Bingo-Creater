@@ -2,7 +2,8 @@
 #app
   h1
   input.bingoTtl(v-model='title')
-  size-changer(v-on:changeSize='changeSize', :mode='mode', :size='size')
+  mode-changer(v-if="mode === 'share'", v-on:changeMode="changeMode", mode='mode')
+  size-changer(v-if="mode === 'make'", v-on:changeSize='changeSize', :mode='mode', :size='size')
   bingo(v-on:switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
@@ -11,6 +12,7 @@
 <script>
 import Bingo from './components/Bingo';
 import BingoInput from './components/BingoInput';
+import ModeChanger from './components/ModeChanger';
 import SizeChanger from './components/SizeChanger';
 import UrlViewer from './components/UrlViewer';
 import VueFooter from './components/VueFooter';
@@ -20,6 +22,7 @@ export default {
   components: {
     Bingo,
     BingoInput,
+    ModeChanger,
     SizeChanger,
     UrlViewer,
     VueFooter
@@ -75,6 +78,10 @@ export default {
         itemCont[i].open = false;
       }
       return itemCont;
+    },
+    changeMode: function (val) {
+      console.log(val);
+      this.mode = val;
     },
     changeSize: function (val) {
       this.size = parseInt(val);
