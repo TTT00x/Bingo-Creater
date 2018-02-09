@@ -3,7 +3,7 @@
   h1
   input.bingoTtl(v-model='title')
   size-selector(v-on:changeSize='changeSize', :mode='mode', :size='size')
-  bingo(:mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  bingo(v-on:switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   vue-footer
@@ -29,7 +29,7 @@ export default {
       title: '',
       mode: 'make',
       size: 3,
-      itemBg: 'ddd',
+      itemBg: 'efefef',
       itemCont: this.initItemCont()
     }
   },
@@ -78,6 +78,10 @@ export default {
     },
     changeSize: function (val) {
       this.size = parseInt(val);
+    },
+    switchHoleStatus: function (index) {
+      const status = this.itemCont[index].open;
+      this.itemCont[index].open = !status;
     }
   }
 };
