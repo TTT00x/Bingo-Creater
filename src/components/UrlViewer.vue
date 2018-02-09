@@ -1,5 +1,9 @@
 <template lang="pug">
 .UrlViewer-Wrapper
+  p.UrlViewer-Description
+    |{{ description }}
+    br
+    span (現在のURLでは内容を共有できません。下記のURLを共有してください。)
   textarea.UrlViewer#urlViewer(@focus="select", v-model="url", readonly)
   .UrlViewer-BtnWrapper
     button.UrlViewer-Btn_Copy(@click="copy") コピーする
@@ -31,9 +35,6 @@
       }
     },
     computed: {
-      url: function() {
-        return `${this.domain}/?title=${this.encodeTitle}&mode=${this.nextMode}&size=${this.size}${this.encodeContents}`
-      },
       modeIsMake: function () {
         return this.mode === 'make';
       },
@@ -42,6 +43,16 @@
       },
       modeIsResult: function () {
         return this.mode === 'result';
+      },
+      description: function () {
+        if (this.modeIsMake) {
+          return 'ビンゴを共有する'
+        } else if (this.modeIsShare) {
+          return '結果を共有する'
+        }
+      },
+      url: function() {
+        return `${this.domain}/?title=${this.encodeTitle}&mode=${this.nextMode}&size=${this.size}${this.encodeContents}`
       },
       nextMode: function () {
         if (this.modeIsMake) {
@@ -85,16 +96,27 @@
 $bingo-border: #2c3e50;
 
 .UrlViewer-Wrapper {
-  margin: 32px auto 0;
+  margin: 48px auto 0;
   max-width: 500px;
   width: 100%;
 }
 
+.UrlViewer-Description {
+  font-size: 14px;
+  text-align: center;
+  line-height: 140%;
+
+  span {
+    color: #5b5b5b;
+    font-size: 12px;
+  }
+}
+
 .UrlViewer {
   border: 1px solid $bingo-border;
-  color: $bingo-border;
   font-size: 14px;
   line-height: 160%;
+  margin-top: 8px;
   padding: 10px;
   resize: none;
   text-align: left;

@@ -98,7 +98,6 @@ $bingo-border: #2c3e50;
 
   input {
     border: 1px solid $bingo-border;
-    color: #000;
     font-size: 14px;
     padding: 7px;
     -webkit-appearance: none;

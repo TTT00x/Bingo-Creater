@@ -158,7 +158,7 @@ button {
 #app {
   font-family: 'YuGothic', 'メイリオ', Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #2c3e50;
+  color: #333;
   margin: 64px auto 0;
   max-width: 900px;
   min-width: 555px;
