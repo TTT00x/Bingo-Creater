@@ -264,4 +264,20 @@ $hilight: #f5bebe;
     }
   }
 }
+  
+@media (max-width: 555px) {
+
+  .bingo {
+
+    &.bingo-size3 {
+      height: 297px;
+      width: 297px;
+    }
+
+    &.bingo-size5 {
+      height: 495px;
+      width: 495px;
+    }
+  }
+}
 </style>

@@ -168,7 +168,8 @@ button {
   color: #333;
   margin: 64px auto 0;
   max-width: 900px;
-  min-width: 555px;
+  /*min-width: 555px;*/
+  padding: 0 10px;
   width: 100%;
 }
 

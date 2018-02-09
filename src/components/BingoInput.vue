@@ -66,6 +66,7 @@
 </script>
 <style scoped>
 $bingo-border: #2c3e50;
+
 .bingoInput {
   border-top: 1px solid $bingo-border;
   border-left: 1px solid $bingo-border;
@@ -108,6 +109,20 @@ $bingo-border: #2c3e50;
       background-color: #fafafa;
       box-shadow: none;
       outline: none;
+    }
+  }
+}
+
+@media (max-width: 555px) {
+
+  .bingoInput {
+
+    &.bingoInput-size3 {
+      width: 297px;
+    }
+
+    &.bingoInput-size5 {
+      width: 495px;
     }
   }
 }

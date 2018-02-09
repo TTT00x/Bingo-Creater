@@ -143,7 +143,6 @@ $hilight: #f5bebe;
 .UrlViewer-Btn_Play {
   display: block;
   font-size: 14px;
-  margin-right: 16px;
   padding: 5px 10px;
   text-decoration: none;
 
@@ -156,6 +155,7 @@ $hilight: #f5bebe;
   background-color: #fff;
   border: 1px solid $bingo-border;
   color: $bingo-border;
+  margin-right: 16px;
 
   &:hover {
     background-color: $bingo-border;
