@@ -7,125 +7,149 @@
     )
     span(v-text="itemCont[0].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[1].open }"
     )
     span(v-text="itemCont[1].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[2].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[2].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[3].open }"
     )
     span(v-text="itemCont[3].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[4].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[4].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[5].open }"
     )
     span(v-text="itemCont[5].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[6].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[6].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[7].open }"
     )
     span(v-text="itemCont[7].data")
   p.bingo-Item(
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[8].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[8].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[9].open }"
     )
     span(v-text="itemCont[9].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[10].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[10].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[11].open }"
     )
     span(v-text="itemCont[11].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[12].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[12].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[13].open }"
     )
     span(v-text="itemCont[13].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[14].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[14].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[15].open }"
     )
     span(v-text="itemCont[15].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[16].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[16].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[17].open }"
     )
     span(v-text="itemCont[17].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[18].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[18].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[19].open }"
     )
     span(v-text="itemCont[19].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[20].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[20].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[21].open }"
     )
     span(v-text="itemCont[21].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[22].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[22].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[23].open }"
     )
     span(v-text="itemCont[23].data")
   p.bingo-Item(
     v-if="sizeIs5",
+    @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[24].open }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
@@ -168,6 +192,7 @@
 </script>
 <style scoped>
 $bingo-border: #2c3e50;
+$hilight: #f5bebe;
 
 .bingo {
   border-top: 1px solid $bingo-border;
@@ -224,7 +249,7 @@ $bingo-border: #2c3e50;
   &.is_open {
 
     &:after {
-      background-color: #f5bebe;
+      background-color: $hilight;
       border-radius: 50%;
       content: '';
       display: block;
