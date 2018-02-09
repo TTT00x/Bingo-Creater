@@ -2,7 +2,7 @@
 #app
   h1
   input.bingoTtl(v-model='title')
-  size-selector(v-on:changeSize='changeSize', :mode='mode', :size='size')
+  size-changer(v-on:changeSize='changeSize', :mode='mode', :size='size')
   bingo(v-on:switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
@@ -11,7 +11,7 @@
 <script>
 import Bingo from './components/Bingo';
 import BingoInput from './components/BingoInput';
-import SizeSelector from './components/SizeSelector';
+import SizeChanger from './components/SizeChanger';
 import UrlViewer from './components/UrlViewer';
 import VueFooter from './components/VueFooter';
 
@@ -20,7 +20,7 @@ export default {
   components: {
     Bingo,
     BingoInput,
-    SizeSelector,
+    SizeChanger,
     UrlViewer,
     VueFooter
   },
