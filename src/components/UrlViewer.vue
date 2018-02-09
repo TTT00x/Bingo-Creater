@@ -3,11 +3,13 @@
   p.UrlViewer-Description
     |{{ description }}
     br
-    span (現在のURLでは内容を共有できません。下記のURLを共有してください。)
+    span (現在のURLでは内容を保持できません。下記のURLを共有してください。)
   textarea.UrlViewer#urlViewer(@focus="select", v-model="url", readonly)
   .UrlViewer-BtnWrapper
     button.UrlViewer-Btn_Copy(@click="copy") コピーする
-    a.UrlViewer-Btn_Tweet(:href="tweetHref", rel="nofollow", target="_blank") Tweetする
+    a.UrlViewer-Btn_Tweet(:href="tweetHref", rel="nofollow", target="_blank") ツイートする
+  .UrlViewer-BtnWrapper
+    a.UrlViewer-Btn_Play(:href="url", target="_blank") このビンゴで遊ぶ
   .UrlViewer-Notification(v-if="copyComplete")
     p コピーしました
 </template>
@@ -94,6 +96,7 @@
 </script>
 <style scoped>
 $bingo-border: #2c3e50;
+$hilight: #f5bebe;
 
 .UrlViewer-Wrapper {
   margin: 48px auto 0;
@@ -135,19 +138,27 @@ $bingo-border: #2c3e50;
   margin-top: 16px;
 }
 
-.UrlViewer-Btn_Copy {
-  background-color: #fff;
-  border: 1px solid $bingo-border;
-  color: $bingo-border;
+.UrlViewer-Btn_Copy,
+.UrlViewer-Btn_Tweet,
+.UrlViewer-Btn_Play {
   display: block;
   font-size: 14px;
   margin-right: 16px;
   padding: 5px 10px;
+  text-decoration: none;
 
   &:hover {
-    background-color: $bingo-border;
-    color: #fff;
     cursor: pointer;
+  }
+}
+
+.UrlViewer-Btn_Copy {
+  background-color: #fff;
+  border: 1px solid $bingo-border;
+  color: $bingo-border;
+
+  &:hover {
+    background-color: $hilight;
   }
 }
 
@@ -155,15 +166,20 @@ $bingo-border: #2c3e50;
   background-color: $bingo-border;
   border: 1px solid $bingo-border;
   color: #fff;
-  display: block;
-  font-size: 14px;
-  padding: 5px 10px;
-  text-decoration: none;
 
   &:hover {
-    background-color: #fff;
+    background-color: $hilight;
     color: $bingo-border;
-    cursor: pointer;
+  }
+}
+
+.UrlViewer-Btn_Play {
+  background-color: #fff;
+  border: 1px solid $bingo-border;
+  color: $bingo-border;
+
+  &:hover {
+    background-color: $hilight;
   }
 }
 
