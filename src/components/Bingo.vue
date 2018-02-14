@@ -2,155 +2,155 @@
 .bingo.bingo-size3(v-bind:class="{ 'is_share': modeIsShare, 'bingo-size3': sizeIs3, 'bingo-size5': sizeIs5 }")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[0].open }",
+    v-bind:class="{ 'is_open': itemCont[0].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[0].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[1].open }"
+    v-bind:class="{ 'is_open': itemCont[1].open && !modeIsMake }"
     )
     span(v-text="itemCont[1].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[2].open }",
+    v-bind:class="{ 'is_open': itemCont[2].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[2].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[3].open }"
+    v-bind:class="{ 'is_open': itemCont[3].open && !modeIsMake }"
     )
     span(v-text="itemCont[3].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[4].open }",
+    v-bind:class="{ 'is_open': itemCont[4].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[4].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[5].open }"
+    v-bind:class="{ 'is_open': itemCont[5].open && !modeIsMake }"
     )
     span(v-text="itemCont[5].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[6].open }",
+    v-bind:class="{ 'is_open': itemCont[6].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[6].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[7].open }"
+    v-bind:class="{ 'is_open': itemCont[7].open && !modeIsMake }"
     )
     span(v-text="itemCont[7].data")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[8].open }",
+    v-bind:class="{ 'is_open': itemCont[8].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[8].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[9].open }"
+    v-bind:class="{ 'is_open': itemCont[9].open && !modeIsMake }"
     )
     span(v-text="itemCont[9].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[10].open }",
+    v-bind:class="{ 'is_open': itemCont[10].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[10].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[11].open }"
+    v-bind:class="{ 'is_open': itemCont[11].open && !modeIsMake }"
     )
     span(v-text="itemCont[11].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[12].open }",
+    v-bind:class="{ 'is_open': itemCont[12].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[12].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[13].open }"
+    v-bind:class="{ 'is_open': itemCont[13].open && !modeIsMake }"
     )
     span(v-text="itemCont[13].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[14].open }",
+    v-bind:class="{ 'is_open': itemCont[14].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[14].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[15].open }"
+    v-bind:class="{ 'is_open': itemCont[15].open && !modeIsMake }"
     )
     span(v-text="itemCont[15].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[16].open }",
+    v-bind:class="{ 'is_open': itemCont[16].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[16].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[17].open }"
+    v-bind:class="{ 'is_open': itemCont[17].open && !modeIsMake }"
     )
     span(v-text="itemCont[17].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[18].open }",
+    v-bind:class="{ 'is_open': itemCont[18].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[18].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[19].open }"
+    v-bind:class="{ 'is_open': itemCont[19].open && !modeIsMake }"
     )
     span(v-text="itemCont[19].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[20].open }",
+    v-bind:class="{ 'is_open': itemCont[20].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[20].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[21].open }"
+    v-bind:class="{ 'is_open': itemCont[21].open && !modeIsMake }"
     )
     span(v-text="itemCont[21].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[22].open }",
+    v-bind:class="{ 'is_open': itemCont[22].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[22].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[23].open }"
+    v-bind:class="{ 'is_open': itemCont[23].open && !modeIsMake }"
     )
     span(v-text="itemCont[23].data")
   p.bingo-Item(
     v-if="sizeIs5",
     @click="emitSwitchHoleStatus",
-    v-bind:class="{ 'is_open': itemCont[24].open }",
+    v-bind:class="{ 'is_open': itemCont[24].open && !modeIsMake }",
     :style="{ backgroundColor: '#' + itemBg }"
     )
     span(v-text="itemCont[24].data")
@@ -164,6 +164,9 @@
       }
     },
     computed: {
+      modeIsMake: function () {
+        return this.mode === 'make';
+      },
       modeIsShare: function () {
         return this.mode === 'share';
       },

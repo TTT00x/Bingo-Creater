@@ -6,7 +6,7 @@
   size-changer(v-if="mode === 'make'", @changeSize='changeSize', :mode='mode', :size='size')
   bingo(@switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
-  url-viewer(:title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  url-viewer(v-if="mode !== 'result'", :title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   vue-footer
 </template>
 <script>
@@ -41,20 +41,24 @@ export default {
   created: function () {
     this.checkParam();
   },
-  beforeMount: function () {
-  },
   methods: {
     checkParam: function () {
       const param = location.search.substring(1).split('&');
       if (param[0] === '') return;
       const paramLen = param.length;
       const arg = {};
-      arg.itemCont = {};
+      arg.itemCont = [];
       for(let i = 0; i < paramLen; i += 1) {
         let kv = param[i].split('=');
         if (kv[0].indexOf('cont') === 0) {
           let contIndex = kv[0].replace('cont', '');
-          arg.itemCont[contIndex]=kv[1]
+          arg.itemCont[contIndex] = {};
+          arg.itemCont[contIndex].data =kv[1]
+        } else if (kv[0].indexOf('open') === 0) {
+          let openIndex = kv[0].replace('open', '');
+          if (arg.itemCont[openIndex]) {
+            arg.itemCont[openIndex].open = parseInt(kv[1]) === 1;
+          }
         } else if (kv[0] === 'size') {
           arg[kv[0]] = parseInt(kv[1]);
         } else {
@@ -69,7 +73,8 @@ export default {
       this.size = arg.size;
       const cont = arg.itemCont;
       for (let prop in cont) {
-        this.itemCont[prop].data = decodeURI(cont[prop]);
+        this.itemCont[prop].data = decodeURI(cont[prop].data);
+        this.itemCont[prop].open = decodeURI(cont[prop].open);
       }
     },
     initItemCont: () => {
