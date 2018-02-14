@@ -49,12 +49,12 @@ export default {
       if (param[0] === '') return;
       const paramLen = param.length;
       const arg = {};
-      arg.cont = {};
+      arg.itemCont = {};
       for(let i = 0; i < paramLen; i += 1) {
         let kv = param[i].split('=');
         if (kv[0].indexOf('cont') === 0) {
           let contIndex = kv[0].replace('cont', '');
-          arg.cont[contIndex]=kv[1]
+          arg.itemCont[contIndex]=kv[1]
         } else if (kv[0] === 'size') {
           arg[kv[0]] = parseInt(kv[1]);
         } else {
@@ -64,10 +64,10 @@ export default {
       this.setData(arg);
     },
     setData: function (arg) {
-      this.title = arg.title;
+      this.title =  decodeURI(arg.title);
       this.mode = arg.mode;
       this.size = arg.size;
-      const cont = arg.cont;
+      const cont = arg.itemCont;
       for (let prop in cont) {
         this.itemCont[prop].data = decodeURI(cont[prop]);
       }
