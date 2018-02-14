@@ -4,18 +4,18 @@
     @change='emitChangeTitle',
     @focus="onFocusInput",
     @blur="onBlurInput",
-    v-if="inputIsShown",
-    v-model="titleInput",
+    v-show="inputIsShown",
+    v-model="titleValue",
     placeholder='タイトル'
   )
-  p(@click="onClickTitle", v-if="!inputIsShown", v-text="title")
+  p.Title-view(@click="onClickTitle", v-show="!inputIsShown", v-text="title")
 </template>
 <script>
   export default {
     props: ['title', 'mode'],
     data() {
       return {
-        titleInput: '',
+        titleValue: '',
         titleIsEditing: false,
         input: null
       }
@@ -25,7 +25,7 @@
         return this.modeIsMake && (this.titleIsEmpty || this.titleIsEditing);
       },
       titleIsEmpty: function () {
-        return this.titleInput === '';
+        return this.titleValue === '';
       },
       modeIsMake: function () {
         return this.mode === 'make';
@@ -43,20 +43,24 @@
       },
       onClickTitle: function () {
         this.titleIsEditing = true;
-        this.input.focus();
+        setTimeout(() => {
+          this.input.focus();
+        }, 40)
       },
       emitChangeTitle: function () {
-        this.$emit('changeTitle', this.titleInput);
+        this.$emit('changeTitle', this.titleValue);
       }
     }
   }
 </script>
-<style>
+<style scoped>
 .Title {
   border: none;
   border-bottom: 1px solid gray;
   display: block;
+  font-family: inherit;
   font-size: 20px;
+  line-height: 100%;
   margin: 0 auto;
   max-width: 500px;
   padding: 10px;
@@ -78,5 +82,17 @@
   &:-ms-input-placeholder {
     color: #d7d7d7;
   }
+}
+
+.Title-view {
+  border-bottom: 1px solid gray;
+  display: block;
+  font-size: 20px;
+  line-height: 140%;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 11px 10px;
+  text-align: center;
+  width: 100%;
 }
 </style>
