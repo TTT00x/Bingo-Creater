@@ -1,6 +1,8 @@
 <template lang="pug">
   footer.Footer
-    p created by @
+    p created by
+      =' '
+      a(href="") @
 </template>
 <style>
 .Footer {
@@ -9,5 +11,19 @@
   margin-top: 64px;
   padding: 16px;
   width: 100%;
+
+  p {
+    color: #666;
+    font-size: 12px;
+  }
+
+  a {
+    color: #666;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 </style>
