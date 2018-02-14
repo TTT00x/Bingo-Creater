@@ -15,7 +15,7 @@
     props: ['title', 'mode'],
     data() {
       return {
-        titleValue: '',
+        titleValue: this.title,
         titleIsEditing: false,
         input: null
       }
