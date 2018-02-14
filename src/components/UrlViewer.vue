@@ -4,12 +4,12 @@
     |{{ description }}
     br
     span (現在のURLでは内容を保持できません。下記のURLを共有してください。)
-  textarea.UrlViewer#urlViewer(@focus="select", v-model="url", readonly)
+  textarea.UrlViewer#urlViewer(@focus="select", v-model="nextUrl", readonly)
   .UrlViewer-BtnWrapper
     button.UrlViewer-Btn_Copy(@click="copy") コピーする
     a.UrlViewer-Btn_Tweet(:href="tweetHref", rel="nofollow", target="_blank") ツイートする
   .UrlViewer-BtnWrapper
-    a.UrlViewer-Btn_Play(:href="url", target="_blank") このビンゴで遊ぶ
+    a.UrlViewer-Btn_Play(:href="nextUrl", target="_blank") このビンゴで遊ぶ
   .UrlViewer-Notification(v-if="copyComplete")
     p コピーしました
 </template>
@@ -18,7 +18,7 @@
     props: ['title', 'mode', 'size', 'itemBg', 'itemCont'],
     data() {
       return {
-        domain: 'http://' + document.domain,
+        domain: document.domain === 'localhost' ? `http://localhost:8080` : `http://${document.domain}`,
         copyComplete: false
       }
     },
@@ -53,8 +53,9 @@
           return '結果を共有する'
         }
       },
-      url: function() {
-        return `${this.domain}/?title=${this.encodeTitle}&mode=${this.nextMode}&size=${this.size}${this.encodeContents}`
+      nextUrl: function() {
+        if (!this.domain) return;
+        return `${this.domain}/?title=${this.encodeTitle}&mode=${this.nextMode}&size=${this.size}${this.encodeContents}`;
       },
       nextMode: function () {
         if (this.modeIsMake) {
@@ -72,10 +73,17 @@
         const cont = this.itemCont;
         const len = cont.length;
         let data = '';
+        let datum;
+        let openParam;
         for (let i = 0; i < len; i += 1) {
-          let dataItem = encodeURIComponent(cont[i].data);
-          if (dataItem) {
-            data = `${data}&cont${i}=${dataItem}`;
+          datum = encodeURIComponent(cont[i].data);
+          if (datum) {
+            if (cont[i].open) {
+              openParam = `&open${i}=1`;
+            } else {
+              openParam = '';
+            }
+            data = `${data}&cont${i}=${datum}${openParam}`
           }
         }
         return data;
@@ -89,7 +97,7 @@
         }
         description = encodeURI(`${description} | `);
         const text = description + this.encodeTitle;
-        return `http://twitter.com/share?text=${text}&url=${this.url}`
+        return `http://twitter.com/share?text=${text}&url=${this.nextUrl}`
       }
     }
   };
