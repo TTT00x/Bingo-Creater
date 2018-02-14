@@ -7,7 +7,6 @@
     props: ['mode'],
     methods: {
       emitChangeMakeMode: function() {
-        console.log('change');
         this.$emit('changeMode', 'make');
       }
     }

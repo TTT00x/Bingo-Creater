@@ -85,7 +85,6 @@ export default {
       this.title = val;
     },
     changeMode: function (val) {
-      console.log(val);
       this.mode = val;
     },
     changeSize: function (val) {
