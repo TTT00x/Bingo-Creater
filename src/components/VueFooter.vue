@@ -1,6 +1,6 @@
 <template lang="pug">
   footer.Footer
-    p created by
+    p Bingo-Maker is created by
       =' '
       a(href="") @
 </template>
