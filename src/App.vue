@@ -3,7 +3,7 @@
   h1
   title-changer(@changeTitle="changeTitle", :title="title", :mode="mode")
   size-changer(v-if="mode === 'make'", @changeSize='changeSize', :mode='mode', :size='size')
-  bingo-btns(v-if="mode === 'share'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus", :mode='mode')
+  bingo-btns(v-if="mode === 'play'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus", :mode='mode')
   bingo(@switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   clear-cont-btn(v-if="mode === 'make'", @clearItemCont="clearItemCont")

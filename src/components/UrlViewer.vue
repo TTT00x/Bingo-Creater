@@ -40,8 +40,8 @@
       modeIsMake: function () {
         return this.mode === 'make';
       },
-      modeIsShare: function () {
-        return this.mode === 'share';
+      modeIsPlay: function () {
+        return this.mode === 'play';
       },
       modeIsResult: function () {
         return this.mode === 'result';
@@ -49,7 +49,7 @@
       description: function () {
         if (this.modeIsMake) {
           return 'ビンゴを共有する'
-        } else if (this.modeIsShare) {
+        } else if (this.modeIsPlay) {
           return '結果を共有する'
         }
       },
@@ -59,8 +59,8 @@
       },
       nextMode: function () {
         if (this.modeIsMake) {
-          return 'share';
-        } else if (this.modeIsShare) {
+          return 'play';
+        } else if (this.modeIsPlay) {
           return 'result';
         } else if (this.modeIsResult) {
           return this.mode;
@@ -92,7 +92,7 @@
         let description;
         if (this.modeIsMake) {
           description = 'ビンゴを作りました！';
-        } else if (this.modeIsShare) {
+        } else if (this.modeIsPlay) {
           description = 'ビンゴで遊びました！'
         }
         description = encodeURI(`${description} | `);

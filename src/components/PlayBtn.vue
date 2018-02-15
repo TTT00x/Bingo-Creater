@@ -1,12 +1,12 @@
 <template lang="pug">
 .playBtn-Wrapper
-  button.playBtn(@click="emitChangeShareMode") このビンゴで遊ぶ
+  button.playBtn(@click="emitChangePlayMode") このビンゴで遊ぶ
 </template>
 <script>
 export default {
   methods: {
-    emitChangeShareMode: function () {
-      this.$emit('changeMode', 'share');
+    emitChangePlayMode: function () {
+      this.$emit('changeMode', 'play');
     }
   }
 }

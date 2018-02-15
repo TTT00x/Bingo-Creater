@@ -1,7 +1,7 @@
 <template lang="pug">
 .bingoBtns
-  edit-bingo-btn(v-if="mode === 'share'", @changeMode="emitChangeMakeMode", mode='mode')
-  clear-hole-status-btn(v-if="mode === 'share'", @clearHoleStatus="emitClearHoleStatus")
+  edit-bingo-btn(v-if="mode === 'play'", @changeMode="emitChangeMakeMode", mode='mode')
+  clear-hole-status-btn(v-if="mode === 'play'", @clearHoleStatus="emitClearHoleStatus")
 </template>
 <script>
 import EditBingoBtn from './EditBingoBtn';

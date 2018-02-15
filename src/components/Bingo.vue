@@ -1,5 +1,5 @@
 <template lang="pug">
-.bingo.bingo-size3(v-bind:class="{ 'is_share': modeIsShare, 'bingo-size3': sizeIs3, 'bingo-size5': sizeIs5 }")
+.bingo.bingo-size3(v-bind:class="{ 'is_play': modeIsPlay, 'bingo-size3': sizeIs3, 'bingo-size5': sizeIs5 }")
   p.bingo-Item(
     @click="emitSwitchHoleStatus",
     v-bind:class="{ 'is_open': itemCont[0].open && !modeIsMake }",
@@ -167,8 +167,8 @@
       modeIsMake: function () {
         return this.mode === 'make';
       },
-      modeIsShare: function () {
-        return this.mode === 'share';
+      modeIsPlay: function () {
+        return this.mode === 'play';
       },
       sizeIs3: function () {
         return this.size === 3;
@@ -185,7 +185,7 @@
         this.bingoElements = Array.prototype.slice.call(document.querySelectorAll('.bingo-Item'));
       },
       emitSwitchHoleStatus: function (e) {
-        if (!this.modeIsShare) return;
+        if (!this.modeIsPlay) return;
         const current = e.currentTarget;
         const index = this.bingoElements.indexOf(current);
         this.$emit('switchHoleStatus', index);
@@ -205,7 +205,7 @@ $hilight: #f5bebe;
   flex-wrap: wrap;
   margin: 32px auto 0;
 
-  &.is_share {
+  &.is_play {
 
     .bingo-Item {
       &:hover {
