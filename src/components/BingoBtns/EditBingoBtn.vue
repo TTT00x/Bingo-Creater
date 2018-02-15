@@ -7,6 +7,7 @@ export default {
   methods: {
     emitChangeMakeMode: function() {
       this.$emit('changeMode', 'make');
+      this.$emit('clearHoleStatus');
     }
   }
 };

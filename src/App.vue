@@ -8,7 +8,7 @@
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   clear-cont-btn(v-if="mode === 'make'", @clearItemCont="clearItemCont")
   url-viewer(v-if="mode !== 'result'", :title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
-  play-btn(v-if="mode === 'result'", @changeMode="changeMode")
+  play-btn(v-if="mode === 'result'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus")
   vue-footer
 </template>
 <script>

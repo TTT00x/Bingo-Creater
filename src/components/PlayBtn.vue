@@ -7,6 +7,7 @@ export default {
   methods: {
     emitChangePlayMode: function () {
       this.$emit('changeMode', 'play');
+      this.$emit('clearHoleStatus');
     }
   }
 }

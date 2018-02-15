@@ -1,6 +1,6 @@
 <template lang="pug">
 .bingoBtns
-  edit-bingo-btn(v-if="mode === 'play'", @changeMode="emitChangeMakeMode", mode='mode')
+  edit-bingo-btn(v-if="mode === 'play'", @changeMode="emitChangeMakeMode", @clearHoleStatus="emitClearHoleStatus", mode='mode')
   clear-hole-status-btn(v-if="mode === 'play'", @clearHoleStatus="emitClearHoleStatus")
 </template>
 <script>
