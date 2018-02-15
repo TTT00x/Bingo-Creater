@@ -8,6 +8,7 @@
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   clear-cont-btn(v-if="mode === 'make'", @clearItemCont="clearItemCont")
   url-viewer(v-if="mode !== 'result'", :title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  play-btn(v-if="mode === 'result'", @changeMode="changeMode")
   vue-footer
 </template>
 <script>
@@ -17,6 +18,7 @@ import TitleChanger from './components/TitleChanger';
 import SizeChanger from './components/SizeChanger';
 import ClearContBtn from './components/ClearContBtn';
 import BingoBtns from './components/BingoBtns/BingoBtns';
+import PlayBtn from './components/PlayBtn';
 import UrlViewer from './components/UrlViewer';
 import VueFooter from './components/VueFooter';
 
@@ -29,6 +31,7 @@ export default {
     SizeChanger,
     ClearContBtn,
     BingoBtns,
+    PlayBtn,
     UrlViewer,
     VueFooter
   },
@@ -77,7 +80,7 @@ export default {
       const cont = arg.itemCont;
       for (let prop in cont) {
         this.itemCont[prop].data = decodeURI(cont[prop].data);
-        this.itemCont[prop].open = decodeURI(cont[prop].open);
+        this.itemCont[prop].open = cont[prop].open ? decodeURI(cont[prop].open) : false;
       }
     },
     initItemCont: () => {
@@ -188,7 +191,6 @@ button {
   color: #333;
   margin: 64px auto 0;
   max-width: 900px;
-  /*min-width: 555px;*/
   padding: 0 10px;
   width: 100%;
 }
