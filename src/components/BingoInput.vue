@@ -1,5 +1,5 @@
 <template lang="pug">
-.bingoInput.bingoInput-size3(v-bind:class="{ 'bingoInput-size3': sizeIs3, 'bingoInput-size5': sizeIs5 }")
+.bingoInput(v-bind:class="{ 'bingoInput-size3': sizeIs3, 'bingoInput-size5': sizeIs5 }")
   .bingoInput-Item(:style="{ backgroundColor: '#' + itemBg }")
     input(v-model="itemCont[0].data")
   .bingoInput-Item
@@ -122,7 +122,15 @@ $bingo-border: #2c3e50;
     }
 
     &.bingoInput-size5 {
-      width: 495px;
+      width: 300px;
+
+      .bingoInput-Item {
+        padding: 5px;
+
+        input {
+          font-size: 11px;
+        }
+      }
     }
   }
 }

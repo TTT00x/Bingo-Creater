@@ -203,7 +203,7 @@ $hilight: #f5bebe;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  margin: 32px auto;
+  margin: 32px auto 0;
 
   &.is_share {
 
@@ -238,14 +238,20 @@ $hilight: #f5bebe;
 .bingo-Item {
   border-right: 1px solid $bingo-border;
   border-bottom: 1px solid $bingo-border;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  font-size: 14px;
   margin: 0;
   position: relative;
 
   span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
     position: absolute;
+    height: 100%;
+    width: 100%;
     z-index: 5;
   }
 
@@ -278,8 +284,12 @@ $hilight: #f5bebe;
     }
 
     &.bingo-size5 {
-      height: 495px;
-      width: 495px;
+      height: 300px;
+      width: 300px;
+
+      .bingo-Item {
+        font-size: 11px;
+      }
     }
   }
 }
