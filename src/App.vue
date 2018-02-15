@@ -2,10 +2,11 @@
 #app
   h1
   title-changer(@changeTitle="changeTitle", :title="title", :mode="mode")
-  mode-changer(v-if="mode === 'share'", @changeMode="changeMode", mode='mode')
   size-changer(v-if="mode === 'make'", @changeSize='changeSize', :mode='mode', :size='size')
+  bingo-btns(v-if="mode === 'share'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus", :mode='mode')
   bingo(@switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+  clear-cont-btn(v-if="mode === 'make'", @clearItemCont="clearItemCont")
   url-viewer(v-if="mode !== 'result'", :title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
   vue-footer
 </template>
@@ -13,8 +14,9 @@
 import Bingo from './components/Bingo';
 import BingoInput from './components/BingoInput';
 import TitleChanger from './components/TitleChanger';
-import ModeChanger from './components/ModeChanger';
 import SizeChanger from './components/SizeChanger';
+import ClearContBtn from './components/ClearContBtn';
+import BingoBtns from './components/BingoBtns/BingoBtns';
 import UrlViewer from './components/UrlViewer';
 import VueFooter from './components/VueFooter';
 
@@ -24,8 +26,9 @@ export default {
     Bingo,
     BingoInput,
     TitleChanger,
-    ModeChanger,
     SizeChanger,
+    ClearContBtn,
+    BingoBtns,
     UrlViewer,
     VueFooter
   },
@@ -98,6 +101,14 @@ export default {
     switchHoleStatus: function (index) {
       const status = this.itemCont[index].open;
       this.itemCont[index].open = !status;
+    },
+    clearItemCont: function () {
+      this.itemCont = this.initItemCont();
+    },
+    clearHoleStatus: function () {
+      for (let i = 0; i < 25; i += 1) {
+        this.itemCont[i].open = false;
+      }
     }
   }
 };
