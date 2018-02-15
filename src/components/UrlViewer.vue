@@ -8,7 +8,7 @@
   .UrlViewer-BtnWrapper
     button.UrlViewer-Btn_Copy(@click="copy") コピーする
     a.UrlViewer-Btn_Tweet(:href="tweetHref", rel="nofollow", target="_blank") ツイートする
-  .UrlViewer-BtnWrapper
+  .UrlViewer-BtnWrapper(v-if="mode === 'make'")
     a.UrlViewer-Btn_Play(:href="nextUrl", target="_blank") このビンゴで遊ぶ
   .UrlViewer-Notification(v-if="copyComplete")
     p コピーしました
