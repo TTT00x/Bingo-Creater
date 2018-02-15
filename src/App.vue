@@ -1,14 +1,16 @@
 <template lang='pug'>
 #app
-  h1
-  title-changer(@changeTitle="changeTitle", :title="title", :mode="mode")
-  size-changer(v-if="mode === 'make'", @changeSize='changeSize', :mode='mode', :size='size')
-  bingo-btns(v-if="mode === 'play'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus", :mode='mode')
-  bingo(@switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
-  bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
-  clear-cont-btn(v-if="mode === 'make'", @clearItemCont="clearItemCont")
-  url-viewer(v-if="mode !== 'result'", :title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
-  play-btn(v-if="mode === 'result'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus")
+  vue-header
+  .contWrapper
+    h1
+    title-changer(@changeTitle="changeTitle", :title="title", :mode="mode")
+    size-changer(v-if="mode === 'make'", @changeSize='changeSize', :mode='mode', :size='size')
+    bingo-btns(v-if="mode === 'play'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus", :mode='mode')
+    bingo(@switchHoleStatus='switchHoleStatus', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+    bingo-input(v-if="mode === 'make'", :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+    clear-cont-btn(v-if="mode === 'make'", @clearItemCont="clearItemCont")
+    url-viewer(v-if="mode !== 'result'", :title='title', :mode='mode', :size='size', :itemBg='itemBg', :itemCont='itemCont')
+    play-btn(v-if="mode === 'result'", @changeMode="changeMode", @clearHoleStatus="clearHoleStatus")
   vue-footer
 </template>
 <script>
@@ -20,6 +22,7 @@ import ClearContBtn from './components/ClearContBtn';
 import BingoBtns from './components/BingoBtns/BingoBtns';
 import PlayBtn from './components/PlayBtn';
 import UrlViewer from './components/UrlViewer';
+import VueHeader from './components/VueHeader';
 import VueFooter from './components/VueFooter';
 
 export default {
@@ -33,6 +36,7 @@ export default {
     BingoBtns,
     PlayBtn,
     UrlViewer,
+    VueHeader,
     VueFooter
   },
   data () {
@@ -186,10 +190,14 @@ button {
 }
 
 #app {
+  width: 100%;
+}
+
+.contWrapper {
   font-family: 'YuGothic', 'メイリオ', Helvetica, Arial, sans-serif;
   text-align: center;
   color: #333;
-  margin: 64px auto 0;
+  margin: 32px auto 0;
   max-width: 900px;
   padding: 0 10px;
   width: 100%;

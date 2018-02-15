@@ -29,7 +29,9 @@ $bingo-border: #2c3e50;
 .bingoBtns {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin: 16px auto 0;
+  max-width: 500px;
+  width: 100%;
 
   button {
     margin-right: 16px;
