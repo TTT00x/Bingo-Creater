@@ -18,7 +18,7 @@
     props: ['title', 'mode', 'size', 'itemBg', 'itemCont'],
     data() {
       return {
-        domain: document.domain === 'localhost' ? `http://localhost:8080` : `http://${document.domain}`,
+        domain: document.domain === 'localhost' ? `http://localhost:8080` : `http://${document.domain}/bingo-maker/`,
         copyComplete: false
       }
     },
