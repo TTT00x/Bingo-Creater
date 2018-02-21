@@ -1,13 +1,22 @@
 <template lang="pug">
-.sizeChanger
-  input.sizeChanger-Input#sizeChanger-3(v-on:change="emitChangeSize", type='radio', name='sizeChanger', value='3', checked)
-  label.sizeChanger-Label(for='sizeChanger-3') 3 × 3
-  input.sizeChanger-Input#sizeChanger-5(v-on:change="emitChangeSize", type='radio', name='sizeChanger', value='5')
-  label.sizeChanger-Label(for='sizeChanger-5') 5 × 5
+.sizeChanger-Wrapper
+  .sizeChanger
+    input.sizeChanger-Input#sizeChanger-3(@change="emitChangeSize", type='radio', name='sizeChanger', value='3', checked)
+    label.sizeChanger-Label(for='sizeChanger-3', v-bind:class="{ 'is_active': sizeIs3 }") 3 × 3
+    input.sizeChanger-Input#sizeChanger-5(@change="emitChangeSize", type='radio', name='sizeChanger', value='5')
+    label.sizeChanger-Label(for='sizeChanger-5', v-bind:class="{ 'is_active': sizeIs5 }") 5 × 5
 </template>
 <script>
   export default {
     props: ['size'],
+    computed: {
+      sizeIs3: function () {
+        return this.size === 3;
+      },
+      sizeIs5: function () {
+        return this.size === 5;
+      }
+    },
     methods: {
       emitChangeSize: function(e) {
         const val = e.target.value;
@@ -19,9 +28,18 @@
 <style scoped>
 $bingo-border: #2c3e50;
 
-.sizeChanger {
+.sizeChanger-Wrapper {
   margin-top: 32px;
   position: relative;
+}
+
+.sizeChanger {
+  border: 1px solid $bingo-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 140px;
 }
 
 .sizeChanger-Input {
@@ -40,30 +58,24 @@ $bingo-border: #2c3e50;
 
 .sizeChanger-Label {
   font-size: 16px;
-  padding: 5px 5px 5px 20px;
-  position: relative;
-  margin-right: 15px;
+  line-height: 100%;
+  padding: 5px 10px;
+  text-align: center;
+  width: 70px;
 
-  &:last-child {
-    margin-right: 0;
+  &.is_active {
+    background-color: $bingo-border;
+    color: #fff;
+
+    &:hover {
+      background-color: $bingo-border;
+      cursor: default;
+    }
   }
 
   &:hover {
+    background-color: #efefef;
     cursor: pointer;
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    height: 11px;
-    width: 11px;
-    border: 2px solid $bingo-border;
-    border-radius: 50%;
   }
 }
 
@@ -73,18 +85,5 @@ $bingo-border: #2c3e50;
 
 .sizeChanger-Input:checked + .sizeChanger-Label {
 
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 4px;
-    bottom: 0;
-    margin: auto;
-    height: 7px;
-    width: 7px;
-    background-color: $bingo-border;
-    border-radius: 50%;
-  }
 }
 </style>
